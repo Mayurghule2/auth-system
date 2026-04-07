@@ -11,7 +11,7 @@ exports.googleCallback = (req, res) => {
 
   res.cookie("token", token, {
     httpOnly: true,
-    secure: false
+    secure: true
   });
 
   res.redirect("https://auth-system-1fo4to31s-mayurs-projects-f058cfbf.vercel.app/dashboard");
