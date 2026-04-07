@@ -9,7 +9,7 @@ require("./config/passport");
 const app = express();
 
 app.use(cors({
-  origin: "https://auth-system-sjk5.vercel.app/",
+  origin: "https://auth-system-sjk5.vercel.app",
   credentials: true
 }));
 
