@@ -9,7 +9,7 @@ require("./config/passport");
 const app = express();
 
 app.use(cors({
-  origin: "https://auth-system-git-main-mayurs-projects-f058cfbf.vercel.app/",
+  origin: "https://auth-system-git-main-mayurs-projects-f058cfbf.vercel.app",
   credentials: true
 }));
 
