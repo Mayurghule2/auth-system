@@ -9,7 +9,7 @@ require("./config/passport");
 const app = express();
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://auth-system-git-main-mayurs-projects-f058cfbf.vercel.app/",
   credentials: true
 }));
 
