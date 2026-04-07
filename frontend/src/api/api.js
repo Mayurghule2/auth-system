@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://auth-system-4m1f.onrender.com",
   withCredentials: true
 });
