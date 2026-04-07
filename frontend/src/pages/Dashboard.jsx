@@ -15,33 +15,88 @@ const Dashboard = () => {
     window.location.href = "/";
   };
 
-  if (!user) return <p>Loading...</p>;
+  if (!user) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-300">
+        Loading your dashboard...
+      </div>
+    );
+  }
 
   return (
-  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800">
-    <div className="bg-white/10 backdrop-blur-lg shadow-xl rounded-2xl p-8 w-[350px] text-center text-white">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 px-4 py-8">
 
-      <img
-        src={user.profilePic || "https://via.placeholder.com/100"}
-        onError={(e) => e.target.src = "https://via.placeholder.com/100"}
-        className="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-md"
-      />
+      <div className="max-w-4xl mx-auto">
 
-      <h1 className="text-2xl font-semibold mt-4">{user.name}</h1>
-      <p className="text-gray-300 text-sm">{user.email}</p>
+        {/* Header */}
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 flex items-center justify-between">
+          <div>
+            <h1 className="text-xl font-semibold text-gray-800 dark:text-white">
+              Welcome back, {user.name.split(" ")[0]}
+            </h1>
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              Here’s a quick overview of your account.
+            </p>
+          </div>
 
-      <div className="mt-6">
-        <button
-          onClick={logout}
-          className="w-full bg-red-500 hover:bg-red-600 transition-all duration-300 px-4 py-2 rounded-lg font-medium"
-        >
-          Logout
-        </button>
+          <button
+            onClick={logout}
+            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm transition"
+          >
+            Logout
+          </button>
+        </div>
+
+        {/* Profile Card */}
+        <div className="mt-6 bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 flex items-center gap-6">
+
+          <img
+            src={user.profilePic || "https://via.placeholder.com/100"}
+            onError={(e) => e.target.src = "https://via.placeholder.com/100"}
+            className="w-20 h-20 rounded-full border-2 border-gray-200 dark:border-gray-600"
+          />
+
+          <div>
+            <h2 className="text-lg font-medium text-gray-800 dark:text-white">
+              {user.name}
+            </h2>
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              {user.email}
+            </p>
+            <p className="text-xs text-gray-400 mt-1">
+              Account authenticated via Google
+            </p>
+          </div>
+
+        </div>
+
+        {/* Info Section */}
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-5">
+            <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+              Account Status
+            </h3>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+              Your account is active and securely connected using Google OAuth.
+            </p>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-5">
+            <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+              Security
+            </h3>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+              Authentication is handled via encrypted tokens and secure cookies.
+            </p>
+          </div>
+
+        </div>
+
       </div>
 
     </div>
-  </div>
-);
+  );
 };
 
 export default Dashboard;
