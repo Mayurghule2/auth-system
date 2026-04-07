@@ -15,7 +15,7 @@ exports.googleCallback = (req, res) => {
     sameSite: "none"
   });
 
-  res.redirect("https://auth-system-1fo4to31s-mayurs-projects-f058cfbf.vercel.app/dashboard");
+  res.redirect("https://auth-system-sjk5.vercel.app/dashboard");
 };
 
 exports.logout = (req, res) => {
