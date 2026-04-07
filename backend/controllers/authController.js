@@ -14,7 +14,7 @@ exports.googleCallback = (req, res) => {
     secure: false
   });
 
-  res.redirect("http://localhost:5173/dashboard");
+  res.redirect("https://auth-system-1fo4to31s-mayurs-projects-f058cfbf.vercel.app/dashboard");
 };
 
 exports.logout = (req, res) => {
